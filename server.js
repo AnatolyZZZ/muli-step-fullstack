@@ -15,7 +15,7 @@ server.use(cors());
 server.use(express.urlencoded({extended:true}));
 server.use(express.json());
 
-server.listen(process.env.SERVER_PORT, ()=>{
+server.listen(process.env.PORT, ()=>{
     console.log(`run on port ${process.env.SERVER_PORT}`);
   })
 
