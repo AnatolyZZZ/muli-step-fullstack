@@ -1,5 +1,6 @@
 # Frontend Mentor - Multi-step form solution
 This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). 
+Also made express server with database to callect answers
 
 ## Table of contents
 
@@ -29,7 +30,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: https://anatolyzzz.github.io/multi-step-form/
+- Live Site URL: https://multi-step-fullstack-e45e885f1be3.herokuapp.com/
 
 ## My process
 
@@ -39,6 +40,7 @@ Users should be able to:
 - Flexbox
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
+- Node.js and express
 
 ### What I learned
 
