@@ -1,0 +1,33 @@
+.summary {
+    border-radius: 7px;
+    padding: 2em;
+}
+.underlined-item {
+    border-bottom: 1px solid var(--super-light-gray-color);
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+}
+.colored-background {
+    background-color: var(--colored-background);
+}
+/* fonts  */
+.link {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+.link:hover {
+    cursor: pointer;
+}
+.add-on-name {
+    color: var(--light-gray-color);
+    font-weight: 500;
+}
+.add-on-summary-price {
+    color: var(--dark-blue-color);
+}
+.final-price {
+    font-weight: 700;
+    color:  rgb(54, 24, 255);
+    font-size: 1.2em;
+    opacity: 0.9;
+}

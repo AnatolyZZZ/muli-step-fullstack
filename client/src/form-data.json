@@ -1,0 +1,103 @@
+{ "steps" : [
+    {
+        "header" : "Personal info",
+        "short" : "Your info",
+        "subheader" : "Please provide your name, email address, and phone number.",
+        "type" : "freeform",
+        "questions" : [
+            {"name" : "Name", "placeholder" : "e.g. Stephen King", "var" : "name"},
+            {"name" : "Email Address", "placeholder" : "e.g. stephenking@lorem.com", "var" : "email"},
+            {"name" : "Phone Number", "placeholder" : "e.g. +1 234 567 890", "var" : "phone"}
+        ]
+    },
+   {
+        "header" : "Select your plan",
+        "short" : "Select plan",
+        "subheader" : "You have the option of monthly or yearly billing",
+        "type" : "options",
+        "var" : "plan",
+        "options" : {
+            "monthly" : [
+                {"name" : "Arcade",
+                "image" : "./images/icon-arcade.svg",
+                "price" : "$9/mo",
+                "feature" : "null"
+                },
+                {"name" : "Advanced",
+                "image" : "./images/icon-advanced.svg",
+                "price" : "$12/mo",
+                "feature" : "null"
+                },
+                {"name" : "Pro",
+                "image" : "./images/icon-pro.svg",
+                "price" : "$15/mo",
+                "feature" : "null"
+                }
+            ],
+            "yearly" : [
+                {"name" : "Arcade",
+                "image" : "./images/icon-arcade.svg",
+                "price" : "$90/yr",
+                "feature" : "2 months free"
+                },
+                {"name" : "Advanced",
+                "image" : "./images/icon-advanced.svg",
+                "price" : "$120/yr",
+                "feature" : "2 months free"
+                },
+                {"name" : "Pro",
+                "image" : "./images/icon-pro.svg",
+                "price" : "$150/yr",
+                "feature" : "2 months free"
+                }
+
+            ]
+        }
+    },
+    {
+        "header" : "Pick add-ons",
+        "short" : "Add-ons",
+        "subheader" : "Add-ons help enhance your gaming experience.",
+        "type" : "multichoice",
+        "var" : "add_ons",
+        "options" : {
+            "monthly" :
+            [
+                {"name" : "Online service",
+                "feature" : "Access to multiplayer games",
+                "price"  : "+$1/mo"
+                },
+                {"name" : "Larger storage",
+                "feature" : "Extra 1TB of cloud save",
+                "price"  : "+$2/mo"
+                },
+                {"name" : "Customizable Profile",
+                "feature" : "Custom theme on your profile",
+                "price"  : "+$2/mo"
+                }
+            ],
+            "yearly" : 
+            [
+                {"name" : "Online service",
+                "feature" : "Access to multiplayer games",
+                "price"  : "+$10/yr"
+                },
+                {"name" : "Larger storage",
+                "feature" : "Extra 1TB of cloud save",
+                "price"  : "+$20/yr"
+                },
+                {"name" : "Customizable Profile",
+                "feature" : "Custom theme on your profile",
+                "price"  : "+$20/yr"
+                }
+            ]
+        }
+    },
+    {
+        "header" : "Finishing up",
+        "subheader" : "Double-check everything looks OK before confirming",
+        "type" : "summary",
+        "short" : "Summary"
+    }
+    ]
+}

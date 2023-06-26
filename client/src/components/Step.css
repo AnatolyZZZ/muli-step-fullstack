@@ -1,0 +1,244 @@
+/* aligning */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+.step {
+    width: 100%;
+}
+.flex-small-screen {
+    display: flex;
+    gap: 1em
+}
+.flex {
+    display: flex;
+    gap: 2em
+}
+.wide {
+    width: 100%
+}
+.align-center {
+    align-items: center;
+}
+.centered {
+    text-align: center;
+    padding: 4em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.step-header {
+    margin-bottom: 0.4em;
+    font-size: 1.7rem;
+}
+.step-subheader {
+    color: var(--light-gray-color);
+    font-weight: 500;
+    margin: 0 0 2em 0;
+    line-height: 1.5em;
+}
+.invisible {
+    visibility: hidden;
+}
+
+.mooved {
+    top: -4em;
+    background-color: white;
+    padding: 1em 2em;
+    border-radius: 0.8em;
+}
+.step-content {
+    background-color: rgb(234, 242, 254);
+}
+
+/* text inputs */
+
+.text-input {
+    width: 100%;
+    height: 3em;
+    margin-bottom: 1em;
+    padding-left: 0.8em;
+    color: var(--dark-blue-color);
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid var(--super-light-gray-color);
+}
+
+.text-input::placeholder {
+    color: var(--light-gray-color);
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+/* error handle and component */
+.error {
+    color: rgb(218, 0, 0);
+}
+.wrong-field {
+    border-color: rgb(218, 0, 0);
+}
+
+.error, .label {
+    display: inline;
+    margin: 0.3em 0;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* options component */
+
+.options, .add-ons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+}
+.option {
+    width: 100%;
+    padding: 1em;
+    border: 1px solid var(--super-light-gray-color);
+    border-radius: 7px;
+}
+
+
+/* behavior */
+.text-input:hover, .text-input:focus, .text-input:focus-visible,
+.option:hover, .option:focus, .option:focus-visible, .option:has(input:checked)
+ {
+    border-color: var(--bright-violet-color);
+    outline: 0;
+    cursor: pointer;
+}
+.option:has(input:checked)
+ { 
+    background-color: var(--colored-background);
+ }
+ .unselected {
+    color: var(--light-gray-color);
+}
+
+/* fonts */
+.planName, .planPrice, .feature, .regular {
+    margin: 0.5em 0;
+
+}
+.planName, .planPrice {
+    font-weight: 500;
+}
+
+.feature {
+    color: var(--light-gray-color);
+    font-weight: 400;
+}
+.planName {
+    font-size: 1.2rem;
+}
+
+.planPrice {
+    color: var(--light-gray-color);
+    font-size: 0.8em;
+}
+
+.add-on-price {
+    color: var(--bright-violet-color);
+    font-weight: 500;
+}
+
+/* -------------custom inputs----------------  */
+.hiddenInput {
+    display: none;
+}
+/* radio */
+.horizontalRadio {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    background-color: var(--colored-background);
+    height: 3em;
+    align-items: center;
+    margin-top: 2em;
+}
+.custom-radio {
+    background-color: var(--dark-blue-color);
+    border-radius: 10em;
+    display: flex;
+    align-items: center;
+    padding: 0.3em;
+    gap: 0.5em;
+}
+.custom-radio input {
+    opacity: 0;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: #fff;
+    width: 0.8em;
+    height: 0.8em;
+    border: 0;
+    border-radius: 50%;
+}
+
+.custom-radio input:checked {
+    opacity: 1;
+}
+.custom-radio input::before {
+    box-shadow: inset 1em 1em #fff;
+}
+/* checkbox */
+.customCheckbox {
+    appearance: none;
+    width: 2em;
+    height: 2em;
+    border: 1px solid var(--super-light-gray-color);
+    border-radius: 3px;
+    display: grid;
+    place-content: center;
+}
+
+.customCheckbox:checked {
+    background-color: var(--bright-violet-color);
+    border: 0;
+}
+.customCheckbox::before {
+    content: '';
+    width: 1em;
+    height: 1em;
+    color: #fff;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    box-shadow: inset 1em 1em #fff;
+}
+/* ---------------------------------------------------- */
+
+
+@media (min-width: 680px) {
+    .options {
+        flex-direction: row;
+    }
+    .option-flex {
+        max-width: 30%;
+    }
+    .flex-small-screen {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .container {
+        width: 70%;
+    }
+    .step-subheader {
+        margin: 0 0 3em 0;
+    }
+   
+}
+@media (min-width: 900px) {
+    .mooved {
+        top: 0;
+        min-height: 85vh;
+    }
+    .step-content {
+        background-color: #fff;
+    }
+}

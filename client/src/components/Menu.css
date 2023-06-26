@@ -1,0 +1,73 @@
+.menu {
+    background-image: url(../../public/images/bg-sidebar-mobile.svg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    padding: 2em 0 4em 0;
+    gap: 1em;
+}
+
+.menu-item {
+    display: flex;
+    margin-bottom: 2em;
+    align-items: center;
+}
+
+.menu-number {
+    color: white;
+    font-weight: 500;
+    border: 2px solid white;
+    border-radius: 50%;
+    height: 2em;
+    width: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-item-info {
+    display: inline;
+    text-transform: uppercase;
+    color: white;
+    margin: 0 0 0 1.5em;
+}
+
+/* behavior */
+.desktop-only {
+    display: none;
+}
+.clickable:hover {
+    cursor: pointer;
+}
+.inactive {
+    opacity: 0.7;
+}
+.number-selected {
+    color: var(--dark-blue-color);
+    background-color: var(--light-blue-color);
+    border-color: var(--light-blue-color);
+}
+
+/* fonts */
+.menu-item-info h3, .menu-item-info h4 {
+    margin: 0;
+    white-space: nowrap;
+}
+.menu-item-info h4 {
+    opacity: 0.5;
+    font-weight: 400;
+}
+/* //// */
+
+@media (min-width : 900px) {
+    .desktop-only {
+        display: inline;
+    }
+    .menu {
+        display: inline-block;
+        padding: 2em 4em 2em 2em;
+        background-image: url(../../public/images/bg-sidebar-desktop.svg);
+        border-radius: 0.5em;
+    }
+    
+}

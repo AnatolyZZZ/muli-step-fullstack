@@ -1,0 +1,40 @@
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+.confirmation {
+    margin-top: auto;
+    width: 100%;
+    padding: 1em 0;
+}
+/* buttons */
+.forwardBtn , .backBtn {
+    border-radius: 0.5em;
+    border: 0;
+    font-weight: 500;
+}
+.forwardBtn {
+   background-color: var(--dark-blue-color);
+   color: #fff;
+   padding: 0 1.5em;
+   height: 3em;
+}
+.backBtn {
+    background-color: transparent;
+    color: var(--light-gray-color);
+}
+.purpleBtn {
+    background-color: rgb(54, 24, 255)
+}
+/* behavior */
+.backBtn:hover, .forwardBtn:hover, .backBtn:focus, .forwardBtn:focus {
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+
+@media (min-width: 900px)  {
+    .confirmation {
+        padding: 1em 2em;
+    }
+}

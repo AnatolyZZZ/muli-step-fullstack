@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+*, *::after, *::before {
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+body {
+  margin: 0;
+  --dark-blue-color : rgb(19, 55, 120);
+  --light-blue-color : rgb(177, 217, 255);
+  --super-light-gray-color : rgb(225, 225, 225);
+  --light-gray-color : rgb(173, 173, 173);
+  --colored-background : rgb(246, 247, 254);
+  --violet-color : rgb(89,82,138);
+  --bright-violet-color : rgb(95, 81, 192);
+  color: var(--dark-blue-color);
+}
+.App {
+  max-width: 1200px;
+}
+
+@media (min-width : 900px) {
+  .App {
+    display: flex;
+    padding: 1em;
+  }
+  
+}
