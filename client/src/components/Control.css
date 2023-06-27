@@ -18,6 +18,9 @@
    color: #fff;
    padding: 0 1.5em;
    height: 3em;
+   display: flex;
+   align-items: center;
+   gap: 0.5em;
 }
 .backBtn {
     background-color: transparent;

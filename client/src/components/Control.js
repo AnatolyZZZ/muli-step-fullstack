@@ -1,16 +1,19 @@
 import { useSelector, useDispatch } from "react-redux"
 import steps from '../form-data.json';
 import './Control.css'
-import {changeUnValid, setStep, changeValid} from  '../actions';
+import {changeUnValid, setStep, changeValid, setLoading} from  '../actions';
 import { useNavigate } from "react-router-dom";
 
 
 export const Control = (props) => {
     const fields = useSelector(state => state.fields);
     const plan = useSelector(state => state.options.plan);
+    const loading = useSelector(state => state.loading)
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const step = useSelector(state => state.current_step);
+    const cur_state = useSelector(state => state);
+    const sandclock = <img src="./images/sand-clock-loader.gif" alt="sand" style={{width : '1.5em'}}/>
 
 
     const checkEmpty = async (name) => {
@@ -39,11 +42,11 @@ export const Control = (props) => {
                     headers :{"Content-Type" : "application/json"},
                     body : JSON.stringify({email: fields['email']})
                 }
-                // console.log(para);
+          
                 const res =  await fetch('/api/users/check', para);
                 const msg_json = await res.json();
                 const msg = msg_json.msg;
-                // console.log(msg)
+        
                 if (msg === "user already exists") {
                     dispatch(changeUnValid('email_not_occupied'))
                     return false
@@ -86,7 +89,25 @@ export const Control = (props) => {
                 }
                 break;
             case steps.steps.length - 1 :
-                navigate('/final')
+                const para = {
+                    method : 'POST',
+                    headers :{"Content-Type" : "application/json"},
+                    body : JSON.stringify(cur_state)
+                }
+                dispatch(setLoading(true));
+                try{
+                    const res = await fetch('/api/answers', para);
+                    if (res.ok) {
+                        setTimeout(()=>navigate('/final'), 500)
+                    } else {
+                        setTimeout(()=>navigate('/final-err'), 500)
+                    }
+                    setTimeout(() => dispatch(setLoading(false)), 500);
+                } catch (err) {
+                    console.log('error =>', err);
+                    setTimeout(()=>navigate('/final-err'),500)
+                    setTimeout(() => dispatch(setLoading(false)), 500);
+                }
                 break;
             default :
                 dispatch(setStep(step + 1));
@@ -102,6 +123,6 @@ export const Control = (props) => {
     }
     return <div className="flex-between confirmation">
         {(step === 0) ? <div></div> : <button className="backBtn" onClick={(e) => {dispatch(setStep(step - 1))}}>Go Back</button>}
-        <button className={classes} onClick={(e) => {goNext()}}>{nextStep}</button>
+        <button className={classes} onClick={(e) => {goNext()}}>{loading ? sandclock : <></>}{nextStep}</button>
     </div>
 }
