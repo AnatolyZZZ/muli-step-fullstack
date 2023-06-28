@@ -14,6 +14,7 @@ export const Control = (props) => {
     const step = useSelector(state => state.current_step);
     const cur_state = useSelector(state => state);
     const sandclock = <img src="./images/sand-clock-loader.gif" alt="sand" style={{width : '1.5em'}}/>
+    const routeStart = ""
 
 
     const checkEmpty = async (name) => {
@@ -36,6 +37,7 @@ export const Control = (props) => {
             dispatch(changeUnValid('email'));
             return false
         } else {
+            dispatch(setLoading(true));
             try {
                 const para = {
                     method : 'POST',
@@ -43,9 +45,10 @@ export const Control = (props) => {
                     body : JSON.stringify({email: fields['email']})
                 }
           
-                const res =  await fetch('/api/users/check', para);
+                const res =  await fetch(`${routeStart}/api/users/check`, para);
                 const msg_json = await res.json();
                 const msg = msg_json.msg;
+                dispatch(setLoading(false))
         
                 if (msg === "user already exists") {
                     dispatch(changeUnValid('email_not_occupied'))
@@ -89,14 +92,15 @@ export const Control = (props) => {
                 }
                 break;
             case steps.steps.length - 1 :
+                const dataToInsert = {...cur_state.fields, addons : JSON.stringify(cur_state.multichoice.add_ons), yearly : cur_state.yearly, plan : cur_state.options.plan};
                 const para = {
                     method : 'POST',
                     headers :{"Content-Type" : "application/json"},
-                    body : JSON.stringify(cur_state)
+                    body : JSON.stringify(dataToInsert)
                 }
                 dispatch(setLoading(true));
                 try{
-                    const res = await fetch('/api/answers', para);
+                    const res = await fetch(`${routeStart}/api/answers`, para);
                     if (res.ok) {
                         setTimeout(()=>navigate('/final'), 500)
                     } else {
