@@ -16,7 +16,7 @@ server.use(express.urlencoded({extended:true}));
 server.use(express.json());
 
 server.listen(process.env.PORT, ()=>{
-    console.log(`run on port ${process.env.SERVER_PORT}`);
+    console.log(`run on port ${process.env.PORT}`);
   })
 
 server.use('/api/users', user_router);
